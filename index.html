@@ -1,3 +1,195 @@
 <html>
-  <body>Hello?<body>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="theme-color" content="#131313" />
+		<link rel="icon" type="image/svg" href="logo.svg" />
+		<style>
+:root {
+	--bg-color: #131313;
+	--color: #DFDFDF;
+
+	--button: #0F0F0F;
+	--button-border: #AFAFAF;
+}
+		
+body {
+	background-color: var(--bg-color);
+	color: var(--color);
+	font-size: 1.2rem;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+@keyframes pop {
+	0% {
+		transform: translate(-100vw);
+		opacity: 0;
+	}
+
+	80% {
+		transform: translateX(1vw);
+		opacity: 0.8;
+	}
+
+	100% {
+		transform: translateX(0vw);
+		opacity: 1;
+	}
+}
+
+.name, .do {
+	width: 48%;
+	display: inline-block;
+	overflow: hidden;
+	white-space: nowrap;
+	font-size: 2em;
+}
+
+.name > *, .do > * {
+	display: table;
+	animation: pop 1s forwards;
+	animation-delay: var(--delay);
+	transform: translateX(-100vw);
+}
+
+.intro-box {
+	margin: 1em;
+}
+
+@keyframes pop-down {
+	0% {
+		transform: translateY(-100vh);
+		opacity: 0;
+	}
+
+	80% {
+		transform: translateY(1vh);
+		opacity: 0.8;
+	}
+
+	100% {
+		transform: translateY(0vh);
+		opacity: 1;
+	}
+}
+
+.content-box {
+	animation: pop-down 1s forwards;
+	padding: 1em;
+	margin-top: 1em;
+}
+
+button, .stack > div {
+	vertical-align: top;
+
+
+	font-size: inherit;
+	padding-top: 0.3em;
+	padding-bottom: 0.2em;
+	padding: 0.5em;
+	border-radius: 6px;
+
+	background-color: var(--button);
+	color: inherit;
+
+	border: 1px solid var(--button-border);
+	border-top: 1px solid var(--button-border);
+	border-bottom: 3px solid var(--button-border);
+}
+
+button:active {
+	border-top: 3px solid var(--button-border);
+	border-bottom: 1px solid var(--button-border);
+}
+
+button.green {
+	background-color: var(--button-green);
+	border-color: var(--button-green-border);
+}
+
+button.green:active {
+	border-color: var(--button-green-border);
+}
+
+h2 { text-align: center; }
+
+.projects {
+	overflow: hidden;
+}
+
+.projects > * {
+	animation: pop-down 1s forwards;
+	animation-delay: var(--delay);
+}
+
+.projects h2 {
+	font-size: 1.2em;
+}
+
+.projects > * > div h2 {
+	font-size: 1.0em;
+}
+
+img {
+	max-width: 50vw;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.projects > * > div > p {
+	text-indent: 3em;
+}
+
+a {
+	color: #AFCFFF;
+}
+		</style>
+		<title>Miko2025</title>
+	</head>
+	<body>
+		<div class="intro-box">
+			<div class="name">
+				<div>My</div>
+				<div>Name</div>
+				<div>Is</div>
+				<div>Miko</div>
+			</div>
+			<div class="do">
+				<div>I</div>
+				<div>Make</div>
+				<div>Software</div>		
+			</div>
+		</div>
+		<script>
+let i = 0;
+for(const el of document.querySelectorAll(".name > *, .do > *")){
+	el.style.setProperty("--delay", `${i * 0.5}s`)
+	i++;
+}
+
+i = 0;
+for(const el of document.querySelectorAll(".projects > *")){
+	el.style.setProperty("--delay", `${i * 1}s`)
+	i++;
+}		</script>
+		<div class="content-box">
+			<h2>Projects</h2>
+			<div class="projects">
+				<div>
+					<h2>Defensk</h2>
+					<div>
+						<img src="https://miko-2025.github.io/defensk/defensk.png"></img>
+						<h2>Version 0.0.8</h2>
+						<p>
+Build and defend your city in this click to shoot air defense game. Build residential buildings and increase balance, build command building for city administration, build research lab to upgrade your defense, build trade center to control trades, etc.
+						</p>
+						<a href="defensk">Visit</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
